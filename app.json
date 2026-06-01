@@ -1,1 +1,85 @@
-.
+{
+  "name": "Botub AI",
+  "description": "AI-powered chatbot and website analysis app with a React frontend and Express API.",
+  "keywords": [
+    "node",
+    "react",
+    "vite",
+    "express",
+    "firebase",
+    "ai",
+    "heroku"
+  ],
+  "stack": "heroku-24",
+  "success_url": "/api/health",
+  "formation": {
+    "web": {
+      "quantity": 1,
+      "size": "basic"
+    }
+  },
+  "env": {
+    "VITE_FIREBASE_API_KEY": {
+      "description": "Firebase client API key used by the Vite frontend."
+    },
+    "VITE_FIREBASE_AUTH_DOMAIN": {
+      "description": "Firebase Auth domain for the frontend app."
+    },
+    "VITE_FIREBASE_PROJECT_ID": {
+      "description": "Firebase project ID used by the frontend app."
+    },
+    "VITE_FIREBASE_DATABASE_ID": {
+      "description": "Firestore database ID. Usually the same as the Firebase project ID or '(default)'."
+    },
+    "VITE_FIREBASE_STORAGE_BUCKET": {
+      "description": "Firebase Storage bucket for the frontend app."
+    },
+    "VITE_FIREBASE_MESSAGING_SENDER_ID": {
+      "description": "Firebase Cloud Messaging sender ID."
+    },
+    "VITE_FIREBASE_APP_ID": {
+      "description": "Firebase app ID for the frontend app."
+    },
+    "VITE_FIREBASE_MEASUREMENT_ID": {
+      "description": "Optional Firebase Analytics measurement ID.",
+      "required": false
+    },
+    "GEMINI_API_KEY": {
+      "description": "Google Gemini API key for chatbot and analysis responses."
+    },
+    "GROQ_API_KEY": {
+      "description": "Optional Groq API key used as the fallback AI provider.",
+      "required": false
+    },
+    "SMTP_HOST": {
+      "description": "SMTP hostname for outbound report and lead emails.",
+      "value": "smtp.gmail.com",
+      "required": false
+    },
+    "SMTP_PORT": {
+      "description": "SMTP port for the configured mail server.",
+      "value": "587",
+      "required": false
+    },
+    "SMTP_USER": {
+      "description": "SMTP username or sender email for report and lead notifications.",
+      "required": false
+    },
+    "SMTP_PASS": {
+      "description": "SMTP password or app-specific password for the sender account.",
+      "required": false
+    },
+    "SMTP_SECURE": {
+      "description": "Set to true for implicit TLS SMTP connections, typically when using port 465.",
+      "value": "false",
+      "required": false
+    },
+    "FIREBASE_SERVICE_ACCOUNT": {
+      "description": "Single-line Firebase service account JSON for backend admin access."
+    },
+    "FIREBASE_PROJECT_ID": {
+      "description": "Optional Firebase project ID for backend status checks. Usually the same as VITE_FIREBASE_PROJECT_ID.",
+      "required": false
+    }
+  }
+}

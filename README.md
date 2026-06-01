@@ -1,20 +1,31 @@
-# Botub AI - Standalone Deployment Guide
+# Botub AI - Deployment Guide
 
-This application is ready to be deployed on **Vercel** or any Node.js environment.
+This application can run on **Heroku**, **Vercel**, or any Node.js host that supports a build step plus a long-running web process.
+
+## Deployment to Heroku
+
+1. Create a Heroku app and connect this repository, or deploy with the Heroku CLI.
+2. Add all variables from `.env.example` to the Heroku app's Config Vars.
+   - For `FIREBASE_SERVICE_ACCOUNT`, download the Firebase service account JSON, remove line breaks, and paste the full JSON as one string.
+3. Heroku will install dependencies, run `npm run build`, and start the app with the included `Procfile`.
+4. Make sure the app uses the default web process:
+   - `web: npm start`
+5. Open the app after deploy. The server now binds to Heroku's injected `PORT` automatically.
 
 ## Deployment to Vercel
 
-1. **Connect your GitHub Repository** to Vercel.
-2. **Environment Variables**: Add all variables from `.env.example` to your Vercel project settings.
-   - For `FIREBASE_SERVICE_ACCOUNT`, you can download the JSON key from your Firebase Console (Project Settings > Service Accounts) and paste the ENTIRE JSON string as the value.
-3. **Build Command**: `npm run build`
-4. **Install Command**: `npm install`
-5. **Output Directory**: `dist`
+1. Connect your GitHub repository to Vercel.
+2. Add all variables from `.env.example` to the Vercel project settings.
+   - For `FIREBASE_SERVICE_ACCOUNT`, download the Firebase service account JSON and paste the entire JSON string as the value.
+3. Use `npm install` as the install command.
+4. Use `npm run build` as the build command.
+5. Use `dist` as the output directory.
 
 ## Features
-- **Standalone Backend**: The `api/` directory contains serverless functions for Vercel.
-- **SPA Routing**: `vercel.json` handles all client-side routes, preventing 404 on refresh.
-- **Security**: Backend routes are protected by Firebase Admin authentication.
+- Express server for API routes and static SPA hosting in production.
+- Vite middleware for local development.
+- `vercel.json` support for Vercel rewrites.
+- `Procfile` support for Heroku web dynos.
 
 ## Local Development
 1. `npm install`

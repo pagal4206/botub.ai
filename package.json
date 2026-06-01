@@ -10,6 +10,10 @@
     "clean": "rm -rf dist",
     "lint": "tsc --noEmit"
   },
+  "engines": {
+    "node": "22.x",
+    "npm": "10.x"
+  },
   "dependencies": {
     "@google/genai": "^1.47.0",
     "@google/generative-ai": "^0.24.1",

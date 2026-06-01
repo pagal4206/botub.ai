@@ -805,8 +805,16 @@ apiRouter.post("/chat", async (req, res) => {
 
 apiRouter.get("/config-status", (req, res) => {
   const client = getGeminiClient();
+  const serverRuntime = process.env.VERCEL
+    ? "Vercel Production"
+    : process.env.DYNO
+      ? "Heroku Dyno"
+      : process.env.NODE_ENV === "production"
+        ? "Node Production"
+        : "Local Development";
+
   res.json({ 
-    server: "Vercel Production", 
+    server: serverRuntime,
     db: !!process.env.FIREBASE_PROJECT_ID, 
     mail: !!process.env.SMTP_USER,
     ai: !!process.env.GEMINI_API_KEY,
@@ -824,4 +832,3 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 export default app;
-
