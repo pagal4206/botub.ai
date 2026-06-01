@@ -20,3 +20,6 @@ This application is ready to be deployed on **Vercel** or any Node.js environmen
 1. `npm install`
 2. Create a `.env` file based on `.env.example`.
 3. `npm run dev`
+
+
+<p align="center"><a href="https://dashboard.heroku.com/new?template=https://github.com/pagal4206/botub.ai"> <img src="https://img.shields.io/badge/Deploy%20On%20Heroku-bringle?style=for-the-badge&logo=heroku" width="220" height="38.45"/></a></p>
